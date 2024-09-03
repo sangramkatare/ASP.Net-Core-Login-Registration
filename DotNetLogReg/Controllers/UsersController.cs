@@ -1,11 +1,13 @@
 ﻿using DotNetLogReg.Models;
-using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using DotNetLogReg.Filters;
+ 
 namespace DotNetLogReg.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")] 
+    [SimpleLogActionFilter]
     public class UsersController : ControllerBase
     {
         private readonly MydbContext _dbContext;
@@ -77,6 +79,25 @@ namespace DotNetLogReg.Controllers
 
             else
                 return NoContent();
+        }
+
+        //The exception Filter
+
+        [HttpPost]
+        [Route("Divide")]
+        //[CalculatorExceptionFilter]
+        public IActionResult Divide(int x,int y)
+        {
+            return Ok(x/y);    
+        }
+
+        [HttpGet]
+        [SimpleResultFilter]
+        [Route("ResultFilter")]
+        public IActionResult Get()
+        {
+            var data = new { FirstName = "sangram", LastName = "katare" };
+            return Ok(data);
         }
 
     }
