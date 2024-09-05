@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetLogReg.Migrations
 {
     [DbContext(typeof(MydbContext))]
-    [Migration("20240830101554_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240905120202_InitialMigrations")]
+    partial class InitialMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

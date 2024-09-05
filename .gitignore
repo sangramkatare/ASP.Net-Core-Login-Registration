@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/DotNetLogReg/Migrations/20240830101554_InitialMigration.cs
